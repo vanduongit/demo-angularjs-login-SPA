@@ -8,7 +8,8 @@
         return {
             failStatus : failStatus,
             isBlank : isBlank,
-            isOkData : isOkData
+            isOkData : isOkData,
+            generateQueryParams : generateQueryParams
         }
 
         function failStatus(status, data){
@@ -29,6 +30,17 @@
 
         function isOkData(status){
             return status == 200;
+        }
+
+        function generateQueryParams(url, map){
+            var query = "";
+            Object.keys(map).forEach(function(e,index){                 
+                query += `${e}=${map[e]}`;
+                if(index < Object.keys(map).length - 1){
+                    query += "&";
+                }
+            });
+            return `${url}?${query}`;
         }
     }
 })();

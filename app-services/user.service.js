@@ -17,6 +17,8 @@
         service.Delete = Delete;
         service.resetPwdAgent = resetPwdAgent;
         service.changePwdAgent = changePwdAgent;
+        service.userUpdateProfile = userUpdateProfile;
+        service.getCurrentUser = getCurrentUser;
 
         return service;
 
@@ -35,6 +37,7 @@
         function Create(user) {
             //return $http.post('/api/users', user).then(handleSuccess, handleError('Error creating user'));            
             let url = host('EbsAgentWS/services/apis/reguser');
+            url = StatusService.generateQueryParams(url,user);
             return $http({
                 method : 'GET',
                 url : url 
@@ -92,8 +95,33 @@
             });
         }
 
+        function userUpdateProfile(user){
+            var url = host('EbsUserWS/services/apis/upusrgenprof');
+            url = StatusService.generateQueryParams(url,user);
+            return $http({
+                method : "GET",
+                url : url
+            }).then(function(res){
+                console.log(res);
+                if(res.status == 200){                    
+                    let data = res.data;
+                    if(!StatusService.isBlank(data)){                 
+                        FlashService.success("UpdateUserGeneralProfile: status=[" + JSON.stringify(data) + "]");                            
+                    }else{
+                        FlashService.error("UpdateUserGeneralProfile: No content");
+                    }                    
+                }else{
+                    StatusService.failStatus(res.status, res.data);
+                }
+            });
+        }
+
         function _getCurrentUserName(){
             return $rootScope.globals.currentUser.username;
+        }
+
+        function getCurrentUser(){
+            return $rootScope.globals.currentUser;
         }
 
         // private functions

@@ -97,6 +97,36 @@
                 controllerAs : 'vm',
                 templateUrl: 'extendSession/extendSession.view.html'                                               
             })
+
+            .state('checkAccountBalance', { 
+                url: '/checkAccountBalance',   
+                parent: 'common',    
+                controller : 'CheckAccountBalanceController',
+                controllerAs : 'vm',
+                templateUrl: 'checkAccountBalance/checkAccountBalance.view.html'                                               
+            })
+
+            .state('updateUserGeneralProfile', { 
+                url: '/updateUserGeneralProfile',   
+                parent: 'common',    
+                controller : 'UpdateProfileController',
+                controllerAs : 'vm',
+                templateUrl: 'updateUserGeneralProfile/update.view.html'                                               
+            })
+
+            .state('depositTopUp', { 
+                url: '/depositTopUp',   
+                parent: 'common',                    
+                templateUrl: 'depositTopUp/deposit.view.html'                                               
+            })
+
+            .state('agentDeposit', { 
+                url: '/deposit/agent',   
+                parent: 'common',   
+                controller : 'AgentDepositController',
+                controllerAs : 'vm',                 
+                templateUrl: 'depositTopUp/agentDeposit/agent.view.html'                                               
+            })
             ;
 
             $urlRouterProvider.otherwise('/home');

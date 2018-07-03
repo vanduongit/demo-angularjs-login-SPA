@@ -1,0 +1,73 @@
+<div id="initOTP">
+    <h4>Init OTP</h4>
+    <form name="form" ng-submit="vm.initOTP()" role="form">                
+        <div class="form-group" ng-class="{ 'has-error': form.custacctname.$dirty && form.custacctname.$error.required }">
+            <label for="custacctname">Customer loginname/acct id</label>
+            <input type="text" name="custacctname" id="custacctname" class="form-control" ng-model="vm.user.custacctname" required />
+            <span ng-show="form.custacctname.$dirty && form.custacctname.$error.required" class="help-block">custacctname is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.mobileNumber.$dirty && form.mobileNumber.$error.required }">
+            <label for="mobileNumber">Customer mobile number</label>
+            <input type="text" name="mobileNumber" id="mobileNumber" class="form-control" ng-model="vm.user.mobileNumber" required />
+            <span ng-show="form.mobileNumber.$dirty && form.mobileNumber.$error.required" class="help-block">mobileNumber is required</span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="vm.dataLoading" class="btn btn-primary">Get OTP</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />            
+        </div>
+    </form>   
+</div>
+<div id="completeOTP" ng-show="vm.isInitOTP">
+    <h4>Complete OTP</h4>
+    <form name="form" ng-submit="vm.completeOTP()" role="form">                
+        <div class="form-group" ng-class="{ 'has-error': form.pinOTP.$dirty && form.pinOTP.$error.required }">
+            <label for="pinOTP">OTP PIN</label>
+            <input type="text" name="pinOTP" id="pinOTP" class="form-control" ng-model="vm.user.pinOTP" required />
+            <span ng-show="form.pinOTP.$dirty && form.pinOTP.$error.required" class="help-block">pinOTP is required</span>
+        </div>        
+        <div class="form-actions">
+            <button type="submit" ng-disabled="vm.dataLoading" class="btn btn-primary">Confirm OTP</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />            
+        </div>
+    </form>  
+</div>
+
+<div id="initDeposit" ng-show="vm.isCompleteOTP">
+    <h4>Init Deposit</h4>
+    <form name="form" ng-submit="vm.initDeposit()" role="form">                
+        <div class="form-group" ng-class="{ 'has-error': form.cashAmount.$dirty && form.cashAmount.$error.required }">
+            <label for="cashAmount">CA$H amount to be deposited</label>
+            <input type="text" name="cashAmount" id="cashAmount" class="form-control" ng-model="vm.user.cashAmount" required />
+            <span ng-show="form.cashAmount.$dirty && form.cashAmount.$error.required" class="help-block">cashAmount is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.channel.$dirty && form.channel.$error.required }">
+            <label for="channel">Channel</label>            
+            <select class="form-control" ng-options="s for s in ['EBanking','eAgent_Cash']" ng-model="vm.user.channel"></select>
+            <span ng-show="form.channel.$dirty && form.channel.$error.required" class="help-block">channel is required</span>
+        </div>        
+        <div class="form-actions">
+            <button type="submit" ng-disabled="vm.dataLoading" class="btn btn-primary">Deposit Account</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />            
+        </div>
+    </form>  
+</div>
+
+<div id="completeDeposit" ng-show="vm.isInitDeposit">
+    <h4>Complete Deposit</h4>
+    <form name="form" ng-submit="vm.completeDeposit()" role="form">                
+        <div class="form-group" ng-class="{ 'has-error': form.transId.$dirty && form.transId.$error.required }">
+            <label for="transId">Transaction ID</label>
+            <input type="text" name="transId" id="transId" class="form-control" ng-model="vm.user.transId" required />
+            <span ng-show="form.transId.$dirty && form.transId.$error.required" class="help-block">transId is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.statusDeposit.$dirty && form.statusDeposit.$error.required }">
+            <label for="statusDeposit">Status Deposit</label>        
+            <select class="form-control" ng-options="s for s in ['Pending', 'Confirmed', 'Failed', 'Cancelled']" ng-model="vm.user.statusDeposit"></select>
+            <span ng-show="form.statusDeposit.$dirty && form.statusDeposit.$error.required" class="help-block">statusDeposit is required</span>
+        </div>        
+        <div class="form-actions">
+            <button type="submit" ng-disabled="vm.dataLoading" class="btn btn-primary">Complete</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />            
+        </div>
+    </form>  
+</div>
