@@ -8,7 +8,7 @@
         npm -v
 ## Installing http-server
 
- - npm install http-server
+ - npm install -g http-server
 
 ## Running
  - Open terminal
