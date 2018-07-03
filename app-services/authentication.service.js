@@ -20,17 +20,25 @@
 
             /* Dummy authentication for testing, uses $timeout to simulate api call
              ----------------------------------------------*/
-            $timeout(function () {
+            
+            $timeout(function () {                
                 var response;
-                UserService.GetByUsername(username)
-                    .then(function (user) {
-                        if (user !== null && user.password === password) {
-                            response = { success: true };
-                        } else {
-                            response = { success: false, message: 'Username or password is incorrect' };
-                        }
-                        callback(response);
-                    });
+                if(username == "alex" && password == "123456"){
+                    response = { success: true };                    
+                }else{
+                    response = { success: false, message: 'Username or password is incorrect' };
+                }
+                callback(response);
+                // var response;
+                // UserService.GetByUsername(username)
+                //     .then(function (user) {
+                //         if (user !== null && user.password === password) {
+                //             response = { success: true };
+                //         } else {
+                //             response = { success: false, message: 'Username or password is incorrect' };
+                //         }
+                //         callback(response);
+                //     });
             }, 1000);
 
             /* Use this for real authentication
@@ -44,7 +52,7 @@
 
         function SetCredentials(acctname, password, token, refreshtoken) {
             var authdata = Base64.encode(username + ':' + password);
-            let authdata1 = `acctid=${acctname},tid=${tokenid}`;
+            let authdata1 = `acctid=${acctname},tid=${token}`;
             $rootScope.globals = {
                 currentUser: {
                     username: username,

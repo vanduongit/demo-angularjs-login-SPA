@@ -5,8 +5,8 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['UserService', '$rootScope','AuthenticationService','FlashService'];
-    function HomeController(UserService, $rootScope, AuthenticationService, FlashService) {
+    HomeController.$inject = ['UserService', '$rootScope','AuthenticationService','FlashService','$location'];
+    function HomeController(UserService, $rootScope, AuthenticationService, FlashService, $location) {
         var vm = this;
 
         vm.user = null;
@@ -22,6 +22,8 @@
         }
 
         function logout(){
+            $location.path('/login');
+            return;
             vm.dataLoading = true;
             AuthenticationService.logout().then(function(res){
                 let data = res.data;
