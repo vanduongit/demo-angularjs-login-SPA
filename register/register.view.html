@@ -1,0 +1,105 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <h2>Register</h2>
+    <form name="form" ng-submit="vm.register()" role="form">
+        <div class="form-group" ng-class="{ 'has-error': form.fullname.$dirty && form.fullname.$error.required }">
+            <label for="fullname">Full name</label>
+            <input type="text" name="fullname" id="fullname" class="form-control" ng-model="vm.user.fullname" required />
+            <span ng-show="form.fullname.$dirty && form.fullname.$error.required" class="help-block">Full name is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.personId.$dirty && form.personId.$error.required }">
+            <label for="personId">Personal ID</label>
+            <input type="text" name="personId" id="Text1" class="form-control" ng-model="vm.user.personId" required />
+            <span ng-show="form.personId.$dirty && form.personId.$error.required" class="help-block">Personal ID is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+            <label for="mobile">Mobile</label>
+            <input type="text" name="mobile" id="mobile" class="form-control" ng-model="vm.user.mobile" required />
+            <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">Mobile is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.nationality.$dirty && form.nationality.$error.required }">
+            <label for="nationality">Nationality</label>
+            <input type="text" name="nationality" id="nationality" class="form-control" ng-model="vm.user.nationality" required />
+            <span ng-show="form.nationality.$dirty && form.nationality.$error.required" class="help-block">Nationality is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.initDep.$dirty && form.initDep.$error.required }">
+            <label for="initDep">initDep</label>
+            <input type="text" name="initDep" id="initDep" class="form-control" ng-model="vm.user.initDep" required />
+            <span ng-show="form.initDep.$dirty && form.initDep.$error.required" class="help-block">initDep is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.birthDay.$dirty && form.birthDay.$error.required }">
+            <label for="birthDay">birthDay (dd/MM/yyyy)</label>
+            <input type="text" name="birthDay" id="birthDay" class="form-control" ng-model="vm.user.birthDay" required />
+            <span ng-show="form.birthDay.$dirty && form.birthDay.$error.required" class="help-block">birthDay is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.gender.$dirty && form.gender.$error.required }">
+            <label for="gender">gender</label>
+            <input type="text" name="gender" id="gender" class="form-control" ng-model="vm.user.gender" required />
+            <span ng-show="form.gender.$dirty && form.gender.$error.required" class="help-block">gender is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.nickName.$dirty && form.nickName.$error.required }">
+            <label for="nickName">nickName</label>
+            <input type="text" name="nickName" id="nickName" class="form-control" ng-model="vm.user.nickName" required />
+            <span ng-show="form.nickName.$dirty && form.nickName.$error.required" class="help-block">nickName is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.cntryId.$dirty && form.cntryId.$error.required }">
+            <label for="cntryId">cntryId</label>
+            <input type="text" name="cntryId" id="cntryId" class="form-control" ng-model="vm.user.cntryId" required />
+            <span ng-show="form.cntryId.$dirty && form.cntryId.$error.required" class="help-block">cntryId is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.addr1.$dirty && form.addr1.$error.required }">
+            <label for="addr1">addr1</label>
+            <input type="text" name="addr1" id="addr1" class="form-control" ng-model="vm.user.addr1" required />
+            <span ng-show="form.addr1.$dirty && form.addr1.$error.required" class="help-block">addr1 is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.cityId.$dirty && form.cityId.$error.required }">
+            <label for="cityId">cityId</label>
+            <input type="text" name="cityId" id="cityId" class="form-control" ng-model="vm.user.cityId" required />
+            <span ng-show="form.cityId.$dirty && form.cityId.$error.required" class="help-block">cityId is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.provId.$dirty && form.provId.$error.required }">
+            <label for="provId">provId</label>
+            <input type="text" name="provId" id="provId" class="form-control" ng-model="vm.user.provId" required />
+            <span ng-show="form.provId.$dirty && form.provId.$error.required" class="help-block">provId is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.pstCd.$dirty && form.pstCd.$error.required }">
+            <label for="pstCd">pstCd</label>
+            <input type="text" name="pstCd" id="pstCd" class="form-control" ng-model="vm.user.pstCd" required />
+            <span ng-show="form.pstCd.$dirty && form.pstCd.$error.required" class="help-block">pstCd is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.phone.$dirty && form.phone.$error.required }">
+            <label for="phone">phone</label>
+            <input type="text" name="phone" id="phone" class="form-control" ng-model="vm.user.phone" required />
+            <span ng-show="form.phone.$dirty && form.phone.$error.required" class="help-block">phone is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+            <label for="email">email</label>
+            <input type="text" name="email" id="email" class="form-control" ng-model="vm.user.email" required />
+            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">email is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.regDate.$dirty && form.regDate.$error.required }">
+            <label for="regDate">regDate (dd/MM/yyyy)</label>
+            <input type="text" name="regDate" id="regDate" class="form-control" ng-model="vm.user.regDate" required />
+            <span ng-show="form.regDate.$dirty && form.regDate.$error.required" class="help-block">regDate is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.bnkNam.$dirty && form.bnkNam.$error.required }">
+            <label for="bnkNam">bnkNam</label>
+            <input type="text" name="bnkNam" id="bnkNam" class="form-control" ng-model="vm.user.bnkNam" required />
+            <span ng-show="form.bnkNam.$dirty && form.bnkNam.$error.required" class="help-block">bnkNam is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.bnkAcctNum.$dirty && form.bnkAcctNum.$error.required }">
+            <label for="bnkAcctNum">bnkAcctNum</label>
+            <input type="text" name="bnkAcctNum" id="bnkAcctNum" class="form-control" ng-model="vm.user.bnkAcctNum" required />
+            <span ng-show="form.bnkAcctNum.$dirty && form.bnkAcctNum.$error.required" class="help-block">bnkAcctNum is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.bnkAcctNam.$dirty && form.bnkAcctNam.$error.required }">
+            <label for="bnkAcctNam">bnkAcctNam</label>
+            <input type="text" name="bnkAcctNam" id="bnkAcctNam" class="form-control" ng-model="vm.user.bnkAcctNam" required />
+            <span ng-show="form.bnkAcctNam.$dirty && form.bnkAcctNam.$error.required" class="help-block">bnkAcctNam is required</span>
+        </div>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Register</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a href="#!/login" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+</div>
