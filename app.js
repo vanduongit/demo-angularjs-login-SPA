@@ -43,7 +43,8 @@
                 templateUrl: 'home/home.view.html',
                 controllerAs: 'vm',
                 abstract: true
-            })            
+            })    
+
             .state('home', { 
                 url: '/home',
                 parent: 'common',
@@ -51,13 +52,7 @@
                 template: '<div><h4>Home Page</h4></div>',
                 //controller: 'CrmCtrl'
             })
-            .state('menu1', { 
-                url: '/menu1',
-                parent: 'common',
-                //templateUrl: '/app/crm/crm.html',
-                template: '<div><h4>Menu1</h4></div>',
-                //controller: 'CrmCtrl'
-            })
+
             .state('login', {
                 url: '/login',
                 controller: 'LoginController',
@@ -71,6 +66,36 @@
                 controller: 'RegisterController',
                 templateUrl: 'register/register.view.html',                                
                 controllerAs: 'vm'
+            })
+
+            .state('resetPwdAgent', { 
+                url: '/resetPwdAgent',   
+                parent: 'common',                             
+                templateUrl: 'resetFirstTimeLoginForAgentAPI/resetFirstTimeLoginForAgentAPI.view.html'                                               
+            })
+
+            .state('resetAgentPassword', { 
+                url: '/resetPwdAgent/resetAgentPassword',   
+                parent: 'common',    
+                controller : 'ResetAgentPasswordController',
+                controllerAs : 'vm',
+                templateUrl: 'resetFirstTimeLoginForAgentAPI/resetAgentPassword/resetAgentPassword.view.html'                                               
+            })
+
+            .state('firstTimeLogin', { 
+                url: '/resetPwdAgent/firstTimeLogin',   
+                parent: 'common',    
+                controller : 'FirstTimeLoginController',
+                controllerAs : 'vm',
+                templateUrl: 'resetFirstTimeLoginForAgentAPI/firstTimeLogin/firstTimeLogin.view.html'                                               
+            })
+
+            .state('extendSession', { 
+                url: '/extendSession',   
+                parent: 'common',    
+                controller : 'ExtendSessionController',
+                controllerAs : 'vm',
+                templateUrl: 'extendSession/extendSession.view.html'                                               
             })
             ;
 

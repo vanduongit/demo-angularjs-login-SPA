@@ -5,8 +5,8 @@
         .module('app')
         .factory('UserService', UserService);
 
-    UserService.$inject = ['$http','host'];
-    function UserService($http,host) {
+    UserService.$inject = ['$http','host','$rootScope','StatusService','FlashService'];
+    function UserService($http,host,$rootScope,StatusService,FlashService) {
         var service = {};
 
         service.GetAll = GetAll;
@@ -15,6 +15,8 @@
         service.Create = Create;
         service.Update = Update;
         service.Delete = Delete;
+        service.resetPwdAgent = resetPwdAgent;
+        service.changePwdAgent = changePwdAgent;
 
         return service;
 
@@ -31,9 +33,7 @@
         }
 
         function Create(user) {
-            //return $http.post('/api/users', user).then(handleSuccess, handleError('Error creating user'));
-            console.log("Create user");
-            console.log(user);
+            //return $http.post('/api/users', user).then(handleSuccess, handleError('Error creating user'));            
             let url = host('EbsAgentWS/services/apis/reguser');
             return $http({
                 method : 'GET',
@@ -49,7 +49,56 @@
             return $http.delete('/api/users/' + id).then(handleSuccess, handleError('Error deleting user'));
         }
 
+        function resetPwdAgent(){
+            let url = host(`EbsAgentWS/services/apis/resetpin?loginname=${_getCurrentUserName()}`);
+            return $http.get(url).then(function(res){
+                if(res.status == 200){                    
+                    let data = res.data;
+                    if(!StatusService.isBlank(data)){
+                        let tokens = data.split(":");
+                        FlashService.success("response: newPassword=" + tokens[0]);
+                        FlashService.success("response: status msg=" + tokens[1]);
+                        FlashService.success("*** ResetAgentPassword ***: New/Temporary Password=[" + tokens[0] + "], msg=[" + tokens[1] + "]");                            
+                    }else{
+                        FlashService.error("ResetAgentPassword: No content");
+                    }
+                    
+                }else{
+                    StatusService.failStatus(res.status, res.data);
+                }
+            });
+        }
+
+        function changePwdAgent(opass, npass){
+            let url = host(`EbsAgentWS/services/apis/ftlogin?opass=${opass}&npass=${npass}`);
+            return $http({
+                method : 'GET',
+                url : url,
+                headers : {
+                    Authorization : btoa(`agentid=${_getCurrentUserName()}`)
+                }
+            }).then(function(res){
+                if(res.status == 200){                    
+                    let data = res.data;
+                    if(!StatusService.isBlank(data)){                 
+                        FlashService.success("*** FirstTimeAgentLogin ***: status=[" + data + "]");                            
+                    }else{
+                        FlashService.error("FirstTimeAgentLogin: No content");
+                    }
+                    
+                }else{
+                    StatusService.failStatus(res.status, res.data);
+                }
+            });
+        }
+
+        function _getCurrentUserName(){
+            return $rootScope.globals.currentUser.username;
+        }
+
         // private functions
+
+        
 
         function handleSuccess(res) {
             return res.data;
