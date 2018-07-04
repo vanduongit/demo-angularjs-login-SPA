@@ -55,7 +55,9 @@
             $rootScope.globals = {
                 currentUser: {
                     username: username,
-                    authdata: authdata
+                    authdata: authdata,
+                    token : token,
+                    refreshtoken : refreshtoken
                 }
             };
 
@@ -95,6 +97,7 @@
                 return res;
             });
         }
+        
     }
 
     // Base64 encoding service used by AuthenticationService

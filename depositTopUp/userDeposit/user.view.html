@@ -1,0 +1,41 @@
+<div id="initOTP" class="col-md-6">
+    <h4>User Deposit</h4>
+    <form name="form" ng-submit="vm.userDeposit()" role="form">                
+        <div class="form-group" ng-class="{ 'has-error': form.custacctname.$dirty && form.custacctname.$error.required }">
+            <label for="custacctname">Customer loginname/acct id</label>
+            <input type="text" name="custacctname" id="custacctname" class="form-control" ng-model="vm.user.custacctname" required />
+            <span ng-show="form.custacctname.$dirty && form.custacctname.$error.required" class="help-block">custacctname is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.mobileNumber.$dirty && form.mobileNumber.$error.required }">
+            <label for="mobileNumber">Customer mobile number</label>
+            <input type="text" name="mobileNumber" id="mobileNumber" class="form-control" ng-model="vm.user.mobileNumber" required />
+            <span ng-show="form.mobileNumber.$dirty && form.mobileNumber.$error.required" class="help-block">mobileNumber is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.cashAmount.$dirty && form.cashAmount.$error.required }">
+                <label for="cashAmount">CA$H amount to be deposited</label>
+                <input type="text" name="cashAmount" id="cashAmount" class="form-control" ng-model="vm.user.cashAmount" required />
+                <span ng-show="form.cashAmount.$dirty && form.cashAmount.$error.required" class="help-block">cashAmount is required</span>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': form.transId.$dirty && form.transId.$error.required }">
+                <label for="transId">Transaction ID</label>
+                <input type="text" name="transId" id="transId" class="form-control" ng-model="vm.user.transId" required />
+                <span ng-show="form.transId.$dirty && form.transId.$error.required" class="help-block">transId is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.merchantTransId.$dirty && form.merchantTransId.$error.required }">
+                <label for="merchantTransId">Merchant ID</label>
+                <input type="text" name="merchantTransId" id="merchantTransId" class="form-control" ng-model="vm.user.merchantTransId" required />
+                <span ng-show="form.merchantTransId.$dirty && form.merchantTransId.$error.required" class="help-block">merchantTransId is required</span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form.statusDeposit.$dirty && form.statusDeposit.$error.required }">
+                <label for="statusDeposit">Status Deposit</label>        
+                <select class="form-control" ng-options="s for s in ['Confirmed', 'Failed']" ng-model="vm.user.statusDeposit"></select>
+                <span ng-show="form.statusDeposit.$dirty && form.statusDeposit.$error.required" class="help-block">statusDeposit is required</span>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" ng-disabled="vm.dataLoading" class="btn btn-primary">Deposit</button>
+            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />            
+        </div>
+    </form>   
+</div>
