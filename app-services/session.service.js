@@ -29,7 +29,9 @@
             getDrawOpen : getDrawOpen,
             getViewWinning : getViewWinning,
             getTransactionHistory : getTransactionHistory,
-            getGames : getGames         
+            getGames : getGames,
+            betting : betting,
+            upload : upload   
         }
 
         function extendSession(){
@@ -479,6 +481,37 @@
                 }
             });
         }
+
+        function betting(fileContent, type){
+            console.log(fileContent);
+            let bettingUrl = {
+                1 : 'EbsUserWS/services/apis/lottobet',
+                2 : 'EbsUserWS/services/apis/digitbet',
+                3 : 'EbsUserWS/services/apis/jackpot4d',
+                4 : 'EbsUserWS/services/apis/jackpot4dsys'
+            }
+            let url = `${host(bettingUrl[type])}?betData=${fileContent}`;
+            return $http.post(url,{betData:fileContent}).then(function(res){
+                StatusService.failStatus(res);
+                return res;
+            });
+        }
+
+        function upload(fileContent, customerId){            
+            var auth = `${UserService.getCurrentUser().authdata},acctid=${customerId}`;
+            let url = `${host('EbsAgentWS/services/apis/uploadfilestr')}?strData=${fileContent}`;
+            return $http({
+                method : "POST",
+                url : url, 
+                headers : {
+                    Authorization : auth
+                }
+            }).then(function(res){  
+                StatusService.failStatus(res);
+                return res;
+            });
+        }
+    
 
     }
 })();

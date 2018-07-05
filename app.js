@@ -227,6 +227,22 @@
                 controllerAs : 'vm',   
                 templateUrl: 'validateSession/validate.view.html'                                               
             })
+
+            .state('betting', { 
+                url: '/betting',   
+                parent: 'common',              
+                controller: 'BettingController',
+                controllerAs : 'vm',   
+                templateUrl: 'betting/betting.view.html'                                               
+            })
+
+            .state('upload', { 
+                url: '/upload',   
+                parent: 'common',              
+                controller: 'UploadController',
+                controllerAs : 'vm',   
+                templateUrl: 'uploadFile/uploadFile.view.html'                                               
+            })
             ;
 
             $urlRouterProvider.otherwise('/home');
