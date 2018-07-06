@@ -6,15 +6,15 @@
         .directive('onReadFile', function ($parse) {
             return {
                 restrict: 'A',
-                scope: {
-                    fileoutput : "="
-                },
+                scope:{
+                    onReadFile : "&"
+                },                
                 link: function(scope, element, attrs) {
-                    // var fn = $parse(attrs.onReadFile);
+                    var fn = $parse(attrs.onReadFile);
                     
                     element.on('change', function(onChangeEvent) {
                         var reader = new FileReader();
-                        
+                        console.log(scope);
                         reader.onload = function(onLoadEvent) {                            
                             scope.$apply(function() {
                                 var canvas = document.createElement("canvas");
@@ -29,7 +29,8 @@
                                         ctx.drawImage(this, 0, 0);
                                         var base64Image = canvas.toDataURL("image/png");
                                         data = base64Image.replace(/^data:image\/\w+;base64,/, "");                                                                                                                        
-                                        fn(scope, {$fileContent:data});                                        
+                                        //fn(scope, {$fileConten:data});  
+                                        scope.onReadFile({$fileContent:data});                                                                
                                 });                                                                
                             });
                         };
@@ -49,11 +50,13 @@
         var vm = this;
         vm.upload = upload;       
         
-        vm.showContent = function($fileContent){                          
+        vm.showContent = function($fileContent){
+            console.log("Run it ");
+            console.log($fileContent);                      ;
             vm.content = $fileContent;            
         };
 
-        function upload(){
+        function upload(){            
             vm.dataLoading = true;
             SessionService.upload(vm.content,vm.custacctname).then(function(res){
                 let data = res.data;

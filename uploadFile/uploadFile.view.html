@@ -8,7 +8,7 @@
                 </div>                              
                 <div class="form-group" ng-class="{ 'has-error': form.enddate.$dirty && form.enddate.$error.required }">
                         <h4>Select file</h4>
-                        <input type="file" on-read-file="vm.showContent($fileContent)" fileoutput="content" />
+                        <input type="file" on-read-file="vm.showContent($fileContent)" />
                         <div ng-if="vm.content">
                                 <h2>File content is:</h2>
                                 <img ng-src="{{'data:image/png;base64,'+vm.content}}">

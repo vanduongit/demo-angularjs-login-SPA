@@ -1,73 +1,77 @@
 ﻿<div id="top-nav">
     <h1>Hi {{vm.user.firstName}}!</h1>
-    <p>You're logged in!!</p>
-    <p><a ng-click="vm.logout()" ng-disabled="vm.dataLoading" class="btn btn-primary">Logout</a>
+    <h1>You're logged in!!</h1>
+    <p></p><a ng-click="vm.logout()" ng-disabled="vm.dataLoading" class="btn btn-primary">Logout</a>
         <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
     </p>
 </div>
 <div>
     <div id="side-bar">
-        <ul>
-            <li >
-                <a href="#!/register">2. Create User</a><br />        
-            </li>
-            <li >
-                    <a href="#!/upload">3. Upload File</a><br />        
-            </li>
-            <li>
-                <a href="#!/resetPwdAgent">5. Reset/First Time Login for Agent</a><br />
-            </li>
-            <li>
-                <a href="#!/extendSession">7. Extend Session</a><br />
-            </li>
-            <li>
-                <a href="#!/checkAccountBalance">8. Check User Balance</a><br />
-            </li>
-            <li>
-                <a href="#!/updateUserGeneralProfile">9. Update User Profiler</a><br />
-            </li>
-            <li>
-                <a href="#!/depositTopUp">10. Deposit / Top Up -</a><br />
-            </li>
-            <li>
-                <a href="#!/cancelDeposit">11. Cancel (Pending) Deposit / Top Up -</a><br />
-            </li>
-            <li>
-                <a href="#!/withdrawal">12. Withdrawal -</a><br />
-            </li>
-        
-            <li>
-                    <a href="#!/drawResult">13. Get Draw Results -</a><br />
-            </li>
-            <li>
-                    <a href="#!/drawOpen">14. Get Open Draws -</a><br />
-            </li>
-            <li>
-                    <a href="#!/viewWinning">15. View Winning -</a><br />
-            </li>
-            <li>
-                    <a href="#!/transactionHistory">16. Transaction(s) History -</a><br />
-            </li>
-            <li>
-                    <a href="#!/betting">17. Betting -</a><br />
-            </li>
-            <li>
-                    <a href="#!/getGames">18. Get Games -</a><br />
-            </li>
+        <div class="hamburger">
+            <button class="btn btn-default" data-toggle="collapse" data-target="#navigation">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+        </div>
+        <div id="navigation" class="collapse">
+            <div>
+            <ul>
+                <li >
+                    <a href="#!/register">2. Create User</a><br />        
+                </li>
+                <li >
+                        <a href="#!/upload">3. Upload File</a><br />        
+                </li>
+                <li>
+                    <a href="#!/resetPwdAgent">5. Reset/First Time Login for Agent</a><br />
+                </li>
+                <li>
+                    <a href="#!/extendSession">7. Extend Session</a><br />
+                </li>
+                <li>
+                    <a href="#!/checkAccountBalance">8. Check User Balance</a><br />
+                </li>
+                <li>
+                    <a href="#!/updateUserGeneralProfile">9. Update User Profiler</a><br />
+                </li>
+                <li>
+                    <a href="#!/depositTopUp">10. Deposit / Top Up -</a><br />
+                </li>
+                <li>
+                    <a href="#!/cancelDeposit">11. Cancel (Pending) Deposit / Top Up -</a><br />
+                </li>
+                <li>
+                    <a href="#!/withdrawal">12. Withdrawal -</a><br />
+                </li>
             
-            <li>
-                    <a href="#!/validateSession">99. Validate & Extend Session -</a><br />
-            </li>
-            
-        </ul>
+                <li>
+                        <a href="#!/drawResult">13. Get Draw Results -</a><br />
+                </li>
+                <li>
+                        <a href="#!/drawOpen">14. Get Open Draws -</a><br />
+                </li>
+                <li>
+                        <a href="#!/viewWinning">15. View Winning -</a><br />
+                </li>
+                <li>
+                        <a href="#!/transactionHistory">16. Transaction(s) History -</a><br />
+                </li>
+                <li>
+                        <a href="#!/betting">17. Betting -</a><br />
+                </li>
+                <li>
+                        <a href="#!/getGames">18. Get Games -</a><br />
+                </li>
+                
+                <li>
+                        <a href="#!/validateSession">99. Validate & Extend Session -</a><br />
+                </li>
+                
+            </ul>
+        </div>
+        </div>
     </div>
-
-    <hr />
-
-        <section id="content" class="content-wrapper">
-            <aside data-main-menu></aside>
-            <div class="main-content" data-ui-view></div>
-        </section>
-
-    <hr />
+    <section id="content" class="content-wrapper">
+        <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>                
+        <div class="main-content row" data-ui-view></div>        
+    </section>
 </div>

@@ -9,8 +9,8 @@
     function FlashService($rootScope) {
         var service = {};
 
-        service.Success = Success;
-        service.Error = Error;
+        service.success = Success;
+        service.error = Error;
 
         initService();
 

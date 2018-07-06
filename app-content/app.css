@@ -2,25 +2,60 @@
     cursor: pointer;
 }
 
-#top-nav {
-    position: fixed;
-    height: 100px;  
-    background-color: teal;
+#top-nav {    
+    height: 100px;      
+    border-color: blueviolet;
+    border-style:solid;
     display: flex; 
     width: 100%;
+    justify-content: center;    
+    align-items: center;
+    border-radius: 5px;    
 }
-
-#side-bar {
-    position: fixed;
-    width: 200px;
-    margin-top: 100px;
-    background-color: burlywood
+#side-bar {        
+    border-color: burlywood;
+    border-style:solid;   
+    width: 200px; 
+    border-radius: 5px;
+     
 }
-
-#content {
-    margin-left: 200px;
-    margin-top : 100px;
+#content {    
     padding: 20px;
-    background-color: thistle;
-    width : 100%
+    min-height: 100%;
+    border-color: thistle;
+    border-style:solid;    
+    width : 100%;    
+    margin-bottom: 100px;
+    border-radius: 5px;
+    box-shadow: 5px 55px 50px -20px #b6b6b6; 
+}
+
+@media screen and (min-width:992px){
+    #top-nav {        
+        margin-left: 200px;
+    }
+    #side-bar {
+        position: fixed;   
+        box-shadow: 5px 55px 50px -20px #b6b6b6;                                         
+    }
+    .collapse {
+        display: block;
+    }
+    .hamburger{
+        display: none;
+    }
+    #content {        
+        margin-left: 200px;                
+    }
+}
+@media screen and (max-width:991px){
+  
+    #side-bar {
+        width: 100%;      
+    }
+
+    #side-bar ul li {
+        display: inline;                
+    }
+    
 }

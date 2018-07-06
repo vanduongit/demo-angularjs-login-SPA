@@ -3,17 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title>AngularJS User Registration and Login Example</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="app-content/app.css" rel="stylesheet" />
 </head>
-<body>
-    <div class="jumbotron">
-        <div class="container">
-            <div class="col-sm-8 col-sm-offset-2">
-                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
-                <div ng-view></div>
-                <div ui-view=""></div>
-            </div>
+<body>    
+    <div class="container">
+        <div class="col-sm-8 col-sm-offset-1">            
+            <div ui-view=""></div>
         </div>
     </div>
     <!-- <div class="credits text-center">
@@ -23,9 +19,9 @@
         <p>
             <a href="http://jasonwatmore.com">JasonWatmore.com</a>
         </p>
-    </div> -->
-
+    </div> -->    
     <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
     <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.18/angular-ui-router.js"></script>
