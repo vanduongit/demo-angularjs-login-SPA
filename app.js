@@ -4,7 +4,7 @@
     angular
         .module('app', ['ngRoute', 'ngCookies','ui.router','angular-md5'])
         .constant("host",function getUrl(url){
-            return `http://172.17.4.171:8080/${url}`
+            return `http://172.19.19.179:8080${url}`
         })
         .config(config)
         .run(run);

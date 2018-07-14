@@ -17,27 +17,28 @@
         })();
 
         function login() {
-            vm.dataLoading = true;            
-            AuthenticationService.Login(vm.username, vm.password, function (response) {
-                console.log(response);
-                if (response.success) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password, vm.role);
-                    $location.path('/');
-                } else {
-                    FlashService.error(response.message);
-                    vm.dataLoading = false;
-                }
-            });
-            LoginService.loginAgent(vm.username, vm.password).then(function(res){
-                if(res.status === 200){   
-                    let tokens = data.split(",");
-                    if(tokens.length <= 1){
-                        FlashService.error("UserLogin: Expect First Time Login data=" + JSON.stringify(res.data));
-                    }                 
-                    $location.path('/');
-                }
-            });
+            vm.dataLoading = true;
+            if (vm.role == "agent") {
+                LoginService.loginAgent(vm.username, vm.password).then(function (res) {
+                    if (res.status === 200) {
+                        let tokens = data.split(",");
+                        if (tokens.length <= 1) {
+                            FlashService.error("UserLogin: Expect First Time Login data=" + JSON.stringify(res.data));
+                        }
+                        $location.path('/');
+                    }
+                });
+            } else {
+                LoginService.loginUser(vm.username, vm.password).then(function (res) {
+                    if (res.status === 200) {
+                        let tokens = data.split(",");
+                        if (tokens.length <= 1) {
+                            FlashService.error("UserLogin: Expect First Time Login data=" + JSON.stringify(res.data));
+                        }
+                        $location.path('/');
+                    }
+                });
+            }
         };
     }
-
 })();

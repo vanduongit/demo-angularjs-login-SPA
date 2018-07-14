@@ -13,7 +13,7 @@
         }
 
         function failStatus(status, data){
-            let data = JSON.stringify(data);
+            data = JSON.stringify(data);
             if (status == 204)
                 fs.error("response: No content");
             else if (status == 400)
